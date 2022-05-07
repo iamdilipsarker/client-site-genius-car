@@ -34,7 +34,7 @@ const Checkout = () => {
       address: event.target.address.value,
       phone: event.target.phone.value
     }
-     axios.post("http://localhost:5000/order", order).then((response) => {
+     axios.post("https://polar-scrubland-97410.herokuapp.com/order", order).then((response) => {
        const { data } = response;
        if (data.insertedId) {
          toast('thanks for ur order')
