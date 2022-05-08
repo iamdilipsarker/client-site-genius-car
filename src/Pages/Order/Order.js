@@ -14,7 +14,7 @@ const Order = () => {
 
     useEffect(() => {
         const getOrders = async () => {
-            const email = user.email;
+            const email = user?.email;
             
             const url = `https://polar-scrubland-97410.herokuapp.com/order?email=${email}`;
             try {
@@ -37,8 +37,15 @@ const Order = () => {
        
     },[user])
     return (
-        <div>
+        <div className='w-50 mx-auto'>
             <h3>your orders: {orders.length}</h3>
+            {
+                orders.map(order => <div key={order._id}>
+                    <p>
+                        {order.email} : {order.service}
+                    </p>
+                </div>)
+            }
         </div>
     );
 };
